@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './screen/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +16,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Sarang Wallet'),
+      routes: {
+        '/splash': (context) => const SplashScreen(),
+      },
     );
   }
 }
@@ -49,9 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -63,11 +64,22 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 100,
+              child: Image.asset('assets/images/logo_with_text.png',
+                  fit: BoxFit.cover),
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          Navigator.pushNamed(context, '/splash');
+          _incrementCounter();
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
