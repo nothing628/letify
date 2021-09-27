@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './screen/splash_screen.dart';
+import './screen/product_tour_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(title: 'Sarang Wallet'),
       routes: {
-        '/splash': (context) => const SplashScreen(),
+        SplashScreen.routeName: (context) => const SplashScreen(),
+        ProductTour.routeName: (context) => const ProductTour(),
       },
     );
   }
@@ -67,11 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 20,
             ),
-            Container(
+            SizedBox(
               height: 100,
               child: Image.asset('assets/images/logo_with_text.png',
                   fit: BoxFit.cover),
-            )
+            ),
           ],
         ),
       ),
