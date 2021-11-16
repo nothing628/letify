@@ -1,5 +1,27 @@
 import 'package:flutter/material.dart';
 
+class _BackgroundPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Rect firstOval = const Rect.fromLTWH(-106, 736, 530, 290);
+    Rect secondOval = const Rect.fromLTWH(300, -120, 290, 530);
+    Paint myPaint = Paint();
+
+    myPaint.style = PaintingStyle.fill;
+    myPaint.maskFilter = const MaskFilter.blur(BlurStyle.normal, 200);
+    myPaint.color = const Color.fromRGBO(217, 67, 255, 0.19);
+    canvas.drawOval(firstOval, myPaint);
+
+    myPaint.color = const Color.fromRGBO(255, 67, 168, 0.19);
+    canvas.drawOval(secondOval, myPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
+  }
+}
+
 class BlurredBackground extends StatelessWidget {
   final Widget child;
 
@@ -9,44 +31,10 @@ class BlurredBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: DecoratedBox(
-              position: DecorationPosition.background,
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  center: Alignment(-0.9, -0.6),
-                  radius: 1,
-                  colors: <Color>[
-                    Color(0x33FF5A43),
-                    Color(0x00000000),
-                  ],
-                  stops: <double>[0.0, 1.0],
-                ),
-              ),
-            )),
-        const Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: DecoratedBox(
-              position: DecorationPosition.background,
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  center: Alignment(0.9, 0.6),
-                  radius: 1,
-                  colors: <Color>[
-                    Color(0x337F34DE),
-                    Color(0x00000000),
-                  ],
-                  stops: <double>[0.0, 1.0],
-                ),
-              ),
-            )),
+        CustomPaint(
+          child: const Center(),
+          painter: _BackgroundPainter(),
+        ),
         child,
       ],
     );
