@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/blurred_background.dart';
+import '../widgets/circle_progress.dart';
 
 class ProductTour extends StatelessWidget {
   static const routeName = '/tour';
@@ -7,10 +8,15 @@ class ProductTour extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: BlurredBackground(
-          child: Center(
-        child: Text('Product Tour'),
+          child: Stack(
+        children: const [
+          CircleProgress(),
+          Center(
+            child: Text('Product Tour'),
+          )
+        ],
       )),
     );
   }
