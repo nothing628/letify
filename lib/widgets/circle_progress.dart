@@ -1,31 +1,54 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class _MyCustomPainter extends CustomPainter {
-  double getStartAngle(double r, double c) {
-    double sinValue = (c * 0.5) / r;
-    double theta = asin(sinValue * 2);
+class _CircleProgressPainter extends CustomPainter {
+  double getAngle(double width, double height) {
+    double halfWidth = width / 2;
+    double angle = 2 * atan(height / halfWidth);
+    double addDegree = angle * .5;
 
-    return theta + pi / 2 + 0.1;
+    return angle - addDegree;
   }
 
-  double getSweepAngle(double r, double c, double percent) {
-    double sinValue = (c * 0.5) / r;
-    double theta = asin(sinValue * 2);
+  double getRadius(double width, double height) {
+    double halfWidth = width / 2;
+    double angle = getAngle(width, height);
 
-    return (theta * percent * -2.2);
+    return halfWidth / sin(angle) / 2;
+  }
+
+  double getStartAngle(double width, double height) {
+    double angle = getAngle(width, height);
+    double transformAngle = angle * 2 + pi / 2;
+
+    return transformAngle;
+  }
+
+  double getSweepAngle(double width, double height, double percent) {
+    double angle = getAngle(width, height);
+
+    return angle * -4 * percent;
+  }
+
+  double getYPosition(double diameter, double b, double top) {
+    double radius = diameter / 2;
+    double topPoint = radius - b;
+    double yPoint = top - radius - topPoint;
+
+    return yPoint;
   }
 
   @override
   void paint(Canvas canvas, Size size) {
-    double r = size.width + 150;
-    double c = size.width;
-    double startAngle = getStartAngle(r, c);
-    double sweepAngle = getSweepAngle(r, c, 0.5);
-    double fullSweepAngle = getSweepAngle(r, c, 1);
+    double b = 40;
+    double r = getRadius(size.width, b);
+    double d = r * 2;
+    double t = getYPosition(d, b, size.height - 200);
+    double startAngle = getStartAngle(size.width, b);
+    double sweepAngle = getSweepAngle(size.width, b, 0.7);
+    double fullSweepAngle = getSweepAngle(size.width, b, 1);
 
-    Rect myCanvasSize =
-        Rect.fromLTRB(-75, 0, size.width + 75, size.width + 150);
+    Rect myCanvasSize = Rect.fromLTWH((d - size.width) * -0.5, t, d, d);
     Paint myPaint = Paint();
 
     // Draw empty line
@@ -66,7 +89,7 @@ class _CircleProgress extends State<CircleProgress> {
   Widget build(BuildContext context) {
     return CustomPaint(
       child: const Center(),
-      painter: _MyCustomPainter(),
+      painter: _CircleProgressPainter(),
     );
   }
 }
