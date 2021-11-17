@@ -17,13 +17,16 @@ class SplashScreen extends StatelessWidget {
       onTap: () {
         moveToTour(context);
       },
-      child: BlurredBackground(
-        child: Center(
-            child: SizedBox(
-          height: 100,
-          child: Image.asset('assets/images/logo_with_text.png',
-              fit: BoxFit.cover),
-        )),
+      child: Stack(
+        children: [
+          const BlurredBackground(),
+          Center(
+              child: SizedBox(
+            height: 100,
+            child: Image.asset('assets/images/logo_with_text.png',
+                fit: BoxFit.cover),
+          ))
+        ],
       ),
     ));
   }

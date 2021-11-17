@@ -23,20 +23,13 @@ class _BackgroundPainter extends CustomPainter {
 }
 
 class BlurredBackground extends StatelessWidget {
-  final Widget child;
-
-  const BlurredBackground({required this.child, Key? key}) : super(key: key);
+  const BlurredBackground({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        CustomPaint(
-          child: const Center(),
-          painter: _BackgroundPainter(),
-        ),
-        child,
-      ],
+    return CustomPaint(
+      child: const Center(),
+      painter: _BackgroundPainter(),
     );
   }
 }
