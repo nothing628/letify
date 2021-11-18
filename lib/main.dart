@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './screen/splash_screen.dart';
-import './screen/product_tour_screen.dart';
+import './screen/product_tour_first.dart';
+import './screen/product_tour_second.dart';
+import './screen/product_tour_third.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +22,9 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(title: 'Sarang Wallet'),
       routes: {
         SplashScreen.routeName: (context) => const SplashScreen(),
-        ProductTour.routeName: (context) => const ProductTour(),
+        ProductTourFirst.routeName: (context) => const ProductTourFirst(),
+        ProductTourSecond.routeName: (context) => const ProductTourSecond(),
+        ProductTourThird.routeName: (context) => const ProductTourThird(),
       },
     );
   }

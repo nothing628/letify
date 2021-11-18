@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './product_tour_screen.dart';
+import 'product_tour_first.dart';
 import '../widgets/blurred_background.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -7,7 +7,7 @@ class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   moveToTour(context) {
-    Navigator.pushNamed(context, ProductTour.routeName);
+    Navigator.pushNamed(context, ProductTourFirst.routeName);
   }
 
   @override
