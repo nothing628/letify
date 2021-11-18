@@ -14,7 +14,9 @@ class ProductTour extends StatelessWidget {
       body: Stack(
         children: [
           const BlurredBackground(),
-          const CircleProgress(),
+          const CircleProgress(
+            progress: 1 / 3,
+          ),
           Center(
             child: Column(
               children: [
@@ -45,48 +47,59 @@ class ProductTour extends StatelessWidget {
                 ),
                 Flexible(
                   flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 40, horizontal: 40),
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          'assets/images/illustration_1.png',
-                          scale: 0.1,
-                          height: 290,
-                        ),
-                        const Text(
-                          'Save for your future!',
-                          style: TextStyle(
-                              color: Color.fromRGBO(36, 15, 81, 1),
-                              fontSize: 30,
-                              fontWeight: FontWeight.w800),
-                        ),
-                        const Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
-                            style: TextStyle(
-                                color: Color.fromRGBO(80, 66, 108, 1),
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500))
-                      ],
-                    ),
-                  ),
+                  child: SizedBox(
+                      width: 300,
+                      height: double.infinity,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            child: Image.asset(
+                              'assets/images/illustration_1.png',
+                              scale: 0.1,
+                              height: 290,
+                            ),
+                            padding: const EdgeInsets.only(bottom: 35),
+                          ),
+                          const Padding(
+                            child: Text(
+                              'Save for your future!',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Color.fromRGBO(36, 15, 81, 1),
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w800),
+                            ),
+                            padding: EdgeInsets.only(bottom: 15),
+                          ),
+                          const Text(
+                              'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Color.fromRGBO(80, 66, 108, 1),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500))
+                        ],
+                      )),
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 30, horizontal: 60),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      elevation: 0,
-                      fixedSize: const Size(150, 60),
-                      primary: const Color.fromRGBO(185, 172, 188, 0.3),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)),
+                      const EdgeInsets.symmetric(vertical: 30, horizontal: 80),
+                  child: SizedBox(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        fixedSize: const Size(150, 60),
+                        primary: const Color.fromRGBO(185, 172, 188, 0.3),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                      ),
+                      onPressed: () {},
+                      child: const Text('Next',
+                          style: TextStyle(
+                              color: Color.fromRGBO(80, 66, 108, 0.8))),
                     ),
-                    onPressed: () {},
-                    child: const Text('Next',
-                        style:
-                            TextStyle(color: Color.fromRGBO(80, 66, 108, 0.8))),
+                    width: double.infinity,
                   ),
                 )
               ],

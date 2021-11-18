@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class _CircleProgressPainter extends CustomPainter {
+  final double progress;
+
+  const _CircleProgressPainter({required this.progress}) : super();
+
   double getAngle(double width, double height) {
     double halfWidth = width / 2;
     double angle = 2 * atan(height / halfWidth);
@@ -45,7 +49,7 @@ class _CircleProgressPainter extends CustomPainter {
     double d = r * 2;
     double t = getYPosition(d, b, size.height - 200);
     double startAngle = getStartAngle(size.width, b);
-    double sweepAngle = getSweepAngle(size.width, b, 0.7);
+    double sweepAngle = getSweepAngle(size.width, b, progress);
     double fullSweepAngle = getSweepAngle(size.width, b, 1);
 
     Rect myCanvasSize = Rect.fromLTWH((d - size.width) * -0.5, t, d, d);
@@ -69,27 +73,19 @@ class _CircleProgressPainter extends CustomPainter {
   }
 }
 
-class CircleProgress extends StatefulWidget {
-  const CircleProgress({Key? key}) : super(key: key);
+class CircleProgress extends StatelessWidget {
+  final double progress;
 
-  @override
-  State<CircleProgress> createState() => _CircleProgress();
-}
-
-class _CircleProgress extends State<CircleProgress> {
-  // int _progress = 50;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _progress++;
-  //   });
-  // }
+  const CircleProgress({
+    required this.progress,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
       child: const Center(),
-      painter: _CircleProgressPainter(),
+      painter: _CircleProgressPainter(progress: progress),
     );
   }
 }
