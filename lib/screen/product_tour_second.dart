@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './product_tour_third.dart';
 import '../widgets/blurred_background.dart';
 import '../widgets/circle_progress.dart';
 
@@ -6,7 +7,9 @@ class ProductTourSecond extends StatelessWidget {
   static const routeName = '/tour/2';
   const ProductTourSecond({Key? key}) : super(key: key);
 
-  moveToNextPage(context) {}
+  moveToNextPage(context) {
+    Navigator.pushNamed(context, ProductTourThird.routeName);
+  }
 
   skipTour(context) {}
 
@@ -39,7 +42,9 @@ class ProductTourSecond extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20)),
                             fixedSize: const Size(100, 32),
                             primary: const Color.fromRGBO(185, 172, 188, 0.3)),
-                        onPressed: () {},
+                        onPressed: () {
+                          skipTour(context);
+                        },
                         child: const Text('Skip',
                             style: TextStyle(
                                 color: Color.fromRGBO(80, 66, 108, 0.8))),
@@ -96,7 +101,9 @@ class ProductTourSecond extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        moveToNextPage(context);
+                      },
                       child: const Text('Next',
                           style: TextStyle(
                               color: Color.fromRGBO(80, 66, 108, 0.8))),

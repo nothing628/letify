@@ -15,7 +15,7 @@ class ProductTourThird extends StatelessWidget {
         children: [
           const BlurredBackground(),
           const CircleProgress(
-            progress: 2 / 3,
+            progress: 1,
           ),
           Center(
             child: Column(
