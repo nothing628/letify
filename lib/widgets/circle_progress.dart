@@ -16,7 +16,7 @@ class _CircleProgressPainter extends CustomPainter {
 
   double getRadius(double width, double height) {
     double halfWidth = width / 2;
-    double angle = getAngle(width, height);
+    double angle = getAngle(width, height) / 1.1;
 
     return halfWidth / sin(angle) / 2;
   }
