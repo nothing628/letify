@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import './product_tour_second.dart';
 import '../widgets/blurred_background.dart';
 import '../widgets/circle_progress.dart';
+import '../helper/colors.dart';
 
 class ProductTourThird extends StatelessWidget {
   static const routeName = '/tour/3';
   const ProductTourThird({Key? key}) : super(key: key);
 
   moveToNextPage(context) {}
+  moveToPrevPage(context) {
+    Navigator.pushNamed(context, ProductTourSecond.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,19 +79,52 @@ class ProductTourThird extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 30, horizontal: 80),
                   child: SizedBox(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        fixedSize: const Size(150, 60),
-                        primary: const Color.fromRGBO(185, 172, 188, 0.3),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30)),
-                      ),
-                      onPressed: () {},
-                      child: const Text('Register',
-                          style: TextStyle(
-                              color: Color.fromRGBO(80, 66, 108, 0.8))),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 60,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              fixedSize: const Size(60, 60),
+                              primary: AppColors.transparentPurple,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                            ),
+                            onPressed: () {
+                              moveToPrevPage(context);
+                            },
+                            child: const Image(
+                              image: AssetImage('assets/icons/left.png'),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                            flex: 1,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 0,
+                                    fixedSize: const Size(150, 60),
+                                    primary: AppColors.purple,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(30)),
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text('Register',
+                                      style: TextStyle(
+                                          color: AppColors.whitePurple)),
+                                ),
+                                width: double.infinity,
+                              ),
+                            ))
+                      ],
                     ),
+                    height: 80,
                     width: double.infinity,
                   ),
                 )

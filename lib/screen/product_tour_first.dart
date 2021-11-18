@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './product_tour_second.dart';
 import '../widgets/blurred_background.dart';
 import '../widgets/circle_progress.dart';
+import '../helper/colors.dart';
 
 class ProductTourFirst extends StatelessWidget {
   static const routeName = '/tour/1';
@@ -41,13 +42,12 @@ class ProductTourFirst extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             fixedSize: const Size(100, 32),
-                            primary: const Color.fromRGBO(185, 172, 188, 0.3)),
+                            primary: AppColors.transparentPurple),
                         onPressed: () {
                           skipTour(context);
                         },
                         child: const Text('Skip',
-                            style: TextStyle(
-                                color: Color.fromRGBO(80, 66, 108, 0.8))),
+                            style: TextStyle(color: AppColors.descPurple)),
                       ),
                     ],
                   ),
@@ -73,7 +73,7 @@ class ProductTourFirst extends StatelessWidget {
                               'Save for your future!',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Color.fromRGBO(36, 15, 81, 1),
+                                  color: AppColors.darkPurple,
                                   fontSize: 30,
                                   fontWeight: FontWeight.w800),
                             ),
@@ -83,7 +83,7 @@ class ProductTourFirst extends StatelessWidget {
                               'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Color.fromRGBO(80, 66, 108, 1),
+                                  color: AppColors.descPurple,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500))
                         ],
@@ -97,7 +97,7 @@ class ProductTourFirst extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
                         fixedSize: const Size(150, 60),
-                        primary: const Color.fromRGBO(185, 172, 188, 0.3),
+                        primary: AppColors.transparentPurple,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)),
                       ),
@@ -105,8 +105,7 @@ class ProductTourFirst extends StatelessWidget {
                         moveToNextPage(context);
                       },
                       child: const Text('Next',
-                          style: TextStyle(
-                              color: Color.fromRGBO(80, 66, 108, 0.8))),
+                          style: TextStyle(color: AppColors.descPurple)),
                     ),
                     width: double.infinity,
                   ),
