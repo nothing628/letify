@@ -56,6 +56,9 @@ class LoginScreen extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.only(top: 30, left: 30, right: 30),
                       child: TextField(
+                        style: TextStyle(
+                            color: AppColors.darkPurple,
+                            fontWeight: FontWeight.bold),
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius:
@@ -67,6 +70,7 @@ class LoginScreen extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.only(top: 15, left: 30, right: 30),
                       child: TextField(
+                        style: TextStyle(color: AppColors.darkPurple),
                         obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
