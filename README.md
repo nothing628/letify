@@ -1,4 +1,4 @@
-# aplikasi_keuangan
+# Letify
 
 A new Flutter project.
 
