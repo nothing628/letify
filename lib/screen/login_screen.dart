@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/blurred_background.dart';
+import '../widgets/app_logo.dart';
 import '../helper/colors.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -16,20 +17,7 @@ class LoginScreen extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 30, right: 30, top: 40, bottom: 30),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      'assets/images/logo.png',
-                      width: 48,
-                      height: 48,
-                    ),
-                  ],
-                ),
-              ),
+              const AppLogo(),
               const Padding(
                 padding: EdgeInsets.only(top: 30, left: 30, right: 30),
                 child: Text('Welcome back',
@@ -56,9 +44,7 @@ class LoginScreen extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.only(top: 30, left: 30, right: 30),
                       child: TextField(
-                        style: TextStyle(
-                            color: AppColors.darkPurple,
-                            fontWeight: FontWeight.bold),
+                        style: TextStyle(color: AppColors.darkPurple),
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius:

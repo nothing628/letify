@@ -4,6 +4,7 @@ import './screen/product_tour_first.dart';
 import './screen/product_tour_second.dart';
 import './screen/product_tour_third.dart';
 import './screen/login_screen.dart';
+import './screen/register_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         ProductTourSecond.routeName: (context) => const ProductTourSecond(),
         ProductTourThird.routeName: (context) => const ProductTourThird(),
         LoginScreen.routeName: (context) => const LoginScreen(),
+        RegisterScreen.routeName: (context) => const RegisterScreen(),
       },
     );
   }
