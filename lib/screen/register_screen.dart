@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/blurred_background.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/register_form.dart';
+import '../widgets/register_button.dart';
 import '../helper/colors.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -38,7 +39,8 @@ class RegisterScreen extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                       color: AppColors.descPurple)),
             ),
-            RegisterForm()
+            RegisterForm(),
+            RegisterButton()
           ],
         )
       ],
