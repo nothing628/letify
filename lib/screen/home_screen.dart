@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/blurred_background.dart';
+import '../widgets/credit_card.dart';
 import '../helper/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
       body: Stack(children: [
         const BlurredBackground(),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
           child: Column(
             children: [
               Row(
@@ -22,7 +23,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Padding(
                         padding: EdgeInsets.only(bottom: 5),
                         child: Text(
@@ -40,12 +41,13 @@ class HomeScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 28,
                     backgroundImage: AssetImage('images/profile.jpg'),
                   )
                 ],
-              )
+              ),
+              const CreditCard(),
             ],
           ),
         )
