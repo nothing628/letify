@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/blurred_background.dart';
 import '../widgets/credit_card.dart';
+import '../widgets/add_credit_card_button.dart';
 import '../helper/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -49,7 +50,7 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(
                 width: double.maxFinite,
-                height: 10,
+                height: 30,
               ),
               SizedBox(
                 width: double.maxFinite,
@@ -57,6 +58,7 @@ class HomeScreen extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: const [
+                    AddCreditCardButton(),
                     CreditCard(
                       cardExpired: '12/21',
                       cardHolder: 'Bambank',
