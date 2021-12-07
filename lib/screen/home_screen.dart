@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/blurred_background.dart';
 import '../widgets/credit_card.dart';
+import '../widgets/total_wallet.dart';
 import '../widgets/add_credit_card_button.dart';
 import '../helper/colors.dart';
 
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         const BlurredBackground(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
-          child: Column(
+          child: ListView(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -75,7 +76,8 @@ class HomeScreen extends StatelessWidget {
                     )
                   ],
                 ),
-              )
+              ),
+              const TotalWallet()
             ],
           ),
         )
