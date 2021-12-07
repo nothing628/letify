@@ -51,71 +51,74 @@ class CreditCard extends StatelessWidget {
     var cardNumberSegment3 = cardNumber.substring(8, 12);
     var cardNumberSegment4 = cardNumber.substring(12, 14) + 'XX';
 
-    return Container(
-      width: 254,
-      height: 157,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
-        gradient: boxGradient,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image(
-              height: 30,
-              image: AssetImage(assetIconPath),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 21),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Text(cardNumberSegment1, style: cardNumberStyle),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Text(cardNumberSegment2, style: cardNumberStyle),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Text(cardNumberSegment3, style: cardNumberStyle),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Text(
-                      cardNumberSegment4,
-                      style: cardNumberStyle,
-                    ),
-                  )
-                ],
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      child: Container(
+        width: 254,
+        height: 157,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          gradient: boxGradient,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image(
+                height: 30,
+                image: AssetImage(assetIconPath),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 21),
+                child: Row(
                   children: [
-                    const Text(
-                      'Card Holder',
-                      style: labelStyle,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Text(cardNumberSegment1, style: cardNumberStyle),
                     ),
-                    Text(cardHolder, style: contentStyle)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Text(cardNumberSegment2, style: cardNumberStyle),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Text(cardNumberSegment3, style: cardNumberStyle),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Text(
+                        cardNumberSegment4,
+                        style: cardNumberStyle,
+                      ),
+                    )
                   ],
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('Expires', style: labelStyle),
-                    Text(cardExpired, style: contentStyle)
-                  ],
-                )
-              ],
-            )
-          ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Card Holder',
+                        style: labelStyle,
+                      ),
+                      Text(cardHolder, style: contentStyle)
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Expires', style: labelStyle),
+                      Text(cardExpired, style: contentStyle)
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

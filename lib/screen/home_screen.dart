@@ -47,12 +47,32 @@ class HomeScreen extends StatelessWidget {
                   )
                 ],
               ),
-              const CreditCard(
-                cardExpired: '12/21',
-                cardHolder: 'Bambank',
-                cardNumber: '1234123412341234',
-                style: CreditCardStyles.style2,
-                type: CreditCardTypes.visa,
+              const SizedBox(
+                width: double.maxFinite,
+                height: 10,
+              ),
+              SizedBox(
+                width: double.maxFinite,
+                height: 160,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: const [
+                    CreditCard(
+                      cardExpired: '12/21',
+                      cardHolder: 'Bambank',
+                      cardNumber: '1234123412341234',
+                      style: CreditCardStyles.style1,
+                      type: CreditCardTypes.mastercard,
+                    ),
+                    CreditCard(
+                      cardExpired: '12/21',
+                      cardHolder: 'Bambank',
+                      cardNumber: '1234123412341234',
+                      style: CreditCardStyles.style2,
+                      type: CreditCardTypes.visa,
+                    )
+                  ],
+                ),
               )
             ],
           ),

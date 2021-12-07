@@ -6,6 +6,7 @@ import './screen/product_tour_second.dart';
 import './screen/product_tour_third.dart';
 import './screen/login_screen.dart';
 import './screen/register_screen.dart';
+import './helper/scroll_controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      scrollBehavior: MyCustomScrollBehavior(),
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
