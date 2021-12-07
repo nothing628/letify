@@ -47,7 +47,13 @@ class HomeScreen extends StatelessWidget {
                   )
                 ],
               ),
-              const CreditCard(),
+              const CreditCard(
+                cardExpired: '12/21',
+                cardHolder: 'Bambank',
+                cardNumber: '1234123412341234',
+                style: CreditCardStyles.style2,
+                type: CreditCardTypes.visa,
+              )
             ],
           ),
         )

@@ -1,8 +1,36 @@
 import 'package:flutter/material.dart';
 import '../helper/colors.dart';
 
+enum CreditCardStyles { style1, style2 }
+enum CreditCardTypes { visa, mastercard }
+
 class CreditCard extends StatelessWidget {
-  const CreditCard({Key? key}) : super(key: key);
+  final String cardHolder;
+  final String cardNumber;
+  final String cardExpired;
+  final CreditCardStyles style;
+  final CreditCardTypes type;
+
+  const CreditCard(
+      {Key? key,
+      required this.cardHolder,
+      required this.cardExpired,
+      required this.cardNumber,
+      this.style = CreditCardStyles.style1,
+      this.type = CreditCardTypes.mastercard})
+      : super(key: key);
+
+  Gradient getCardGradient() {
+    if (style == CreditCardStyles.style1) return AppColors.cardGradient1;
+
+    return AppColors.cardGradient2;
+  }
+
+  String getCardIconPath() {
+    if (type == CreditCardTypes.mastercard) return 'icons/mastercard.png';
+
+    return 'icons/visa.png';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,43 +43,50 @@ class CreditCard extends StatelessWidget {
 
     const labelStyle = TextStyle(color: AppColors.white, fontSize: 11);
     const contentStyle = TextStyle(color: AppColors.white, fontSize: 15);
+    Gradient boxGradient = getCardGradient();
+    String assetIconPath = getCardIconPath();
+
+    var cardNumberSegment1 = cardNumber.substring(0, 4);
+    var cardNumberSegment2 = cardNumber.substring(4, 8);
+    var cardNumberSegment3 = cardNumber.substring(8, 12);
+    var cardNumberSegment4 = cardNumber.substring(12, 14) + 'XX';
 
     return Container(
       width: 254,
       height: 157,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        gradient: AppColors.cardGradient1,
+        gradient: boxGradient,
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Image(
+            Image(
               height: 30,
-              image: AssetImage('icons/mastercard.png'),
+              image: AssetImage(assetIconPath),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 21),
               child: Row(
-                children: const [
+                children: [
                   Padding(
-                    padding: EdgeInsets.only(right: 10),
-                    child: Text('9999', style: cardNumberStyle),
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Text(cardNumberSegment1, style: cardNumberStyle),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: 10),
-                    child: Text('9999', style: cardNumberStyle),
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Text(cardNumberSegment2, style: cardNumberStyle),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: 10),
-                    child: Text('9999', style: cardNumberStyle),
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Text(cardNumberSegment3, style: cardNumberStyle),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: 10),
+                    padding: const EdgeInsets.only(right: 10),
                     child: Text(
-                      '99XX',
+                      cardNumberSegment4,
                       style: cardNumberStyle,
                     ),
                   )
@@ -63,19 +98,19 @@ class CreditCard extends StatelessWidget {
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       'Card Holder',
                       style: labelStyle,
                     ),
-                    Text('Someone', style: contentStyle)
+                    Text(cardHolder, style: contentStyle)
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text('Expires', style: labelStyle),
-                    Text('11/23', style: contentStyle)
+                  children: [
+                    const Text('Expires', style: labelStyle),
+                    Text(cardExpired, style: contentStyle)
                   ],
                 )
               ],
