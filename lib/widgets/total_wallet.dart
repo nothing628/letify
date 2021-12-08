@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../helper/colors.dart';
+import '../helper/styles.dart';
 
 class TotalWallet extends StatelessWidget {
   const TotalWallet({Key? key}) : super(key: key);
@@ -12,12 +13,9 @@ class TotalWallet extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Total wallet',
-            style: TextStyle(
-                color: AppColors.darkPurple,
-                fontSize: 18,
-                fontWeight: FontWeight.w700),
+            style: titleStyle,
           ),
           const SizedBox(
             height: 15,

@@ -6,6 +6,7 @@ import '../widgets/add_credit_card_button.dart';
 import '../widgets/bottom_navigation.dart';
 import '../widgets/recent_transaction.dart';
 import '../helper/colors.dart';
+import '../helper/styles.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = '/';
@@ -29,21 +30,18 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 5),
-                          child: Text(
-                            'Welcome back,',
-                            style: TextStyle(
-                                fontSize: 12, color: AppColors.descPurple),
-                          ),
+                      children: [
+                        const Text(
+                          'Welcome back,',
+                          style: TextStyle(
+                              fontSize: 12, color: AppColors.descPurple),
+                        ),
+                        const SizedBox(
+                          height: 5,
                         ),
                         Text(
                           'Jason Wilson',
-                          style: TextStyle(
-                              color: AppColors.darkPurple,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700),
+                          style: userWelcomeStyle,
                         )
                       ],
                     ),

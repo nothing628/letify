@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../helper/colors.dart';
+import '../helper/styles.dart';
 
 class _TransactionItem extends StatelessWidget {
   const _TransactionItem({Key? key}) : super(key: key);
@@ -80,11 +81,7 @@ class RecentTransaction extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('Recent transaction',
-                style: TextStyle(
-                    color: AppColors.darkPurple,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700)),
+            Text('Recent transaction', style: titleStyle),
             TextButton(
               child: const Text('view all'),
               onPressed: () {},
