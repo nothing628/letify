@@ -3,6 +3,7 @@ import '../widgets/blurred_background.dart';
 import '../widgets/credit_card.dart';
 import '../widgets/total_wallet.dart';
 import '../widgets/add_credit_card_button.dart';
+import '../widgets/bottom_navigation.dart';
 import '../helper/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: MyBottomNavigation(),
       body: Stack(children: [
         const BlurredBackground(),
         Padding(
