@@ -4,6 +4,7 @@ import '../widgets/credit_card.dart';
 import '../widgets/total_wallet.dart';
 import '../widgets/add_credit_card_button.dart';
 import '../widgets/bottom_navigation.dart';
+import '../widgets/recent_transaction.dart';
 import '../helper/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,70 +18,73 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: const MyBottomNavigation(),
       body: Stack(children: [
         const BlurredBackground(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
-          child: ListView(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 5),
-                        child: Text(
-                          'Welcome back,',
-                          style: TextStyle(
-                              fontSize: 12, color: AppColors.descPurple),
+        SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            'Welcome back,',
+                            style: TextStyle(
+                                fontSize: 12, color: AppColors.descPurple),
+                          ),
                         ),
-                      ),
-                      Text(
-                        'Jason Wilson',
-                        style: TextStyle(
-                            color: AppColors.darkPurple,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700),
-                      )
-                    ],
-                  ),
-                  const CircleAvatar(
-                    radius: 28,
-                    backgroundImage: AssetImage('images/profile.jpg'),
-                  )
-                ],
-              ),
-              const SizedBox(
-                width: double.maxFinite,
-                height: 30,
-              ),
-              SizedBox(
-                width: double.maxFinite,
-                height: 160,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: const [
-                    AddCreditCardButton(),
-                    CreditCard(
-                      cardExpired: '12/21',
-                      cardHolder: 'Bambank',
-                      cardNumber: '1234123412341234',
-                      style: CreditCardStyles.style1,
-                      type: CreditCardTypes.mastercard,
+                        Text(
+                          'Jason Wilson',
+                          style: TextStyle(
+                              color: AppColors.darkPurple,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700),
+                        )
+                      ],
                     ),
-                    CreditCard(
-                      cardExpired: '12/21',
-                      cardHolder: 'Bambank',
-                      cardNumber: '1234123412341234',
-                      style: CreditCardStyles.style2,
-                      type: CreditCardTypes.visa,
+                    const CircleAvatar(
+                      radius: 28,
+                      backgroundImage: AssetImage('images/profile.jpg'),
                     )
                   ],
                 ),
-              ),
-              const TotalWallet()
-            ],
+                const SizedBox(
+                  width: double.maxFinite,
+                  height: 30,
+                ),
+                SizedBox(
+                  width: double.maxFinite,
+                  height: 160,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: const [
+                      AddCreditCardButton(),
+                      CreditCard(
+                        cardExpired: '12/21',
+                        cardHolder: 'Bambank',
+                        cardNumber: '1234123412341234',
+                        style: CreditCardStyles.style1,
+                        type: CreditCardTypes.mastercard,
+                      ),
+                      CreditCard(
+                        cardExpired: '12/21',
+                        cardHolder: 'Bambank',
+                        cardNumber: '1234123412341234',
+                        style: CreditCardStyles.style2,
+                        type: CreditCardTypes.visa,
+                      )
+                    ],
+                  ),
+                ),
+                const TotalWallet(),
+                const RecentTransaction()
+              ],
+            ),
           ),
         )
       ]),
