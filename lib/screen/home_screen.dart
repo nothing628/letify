@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: MyBottomNavigation(),
+      bottomNavigationBar: const MyBottomNavigation(),
       body: Stack(children: [
         const BlurredBackground(),
         Padding(

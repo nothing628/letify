@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import '../helper/colors.dart';
 
 class _BottomNavigationPainter extends CustomPainter {
   @override
@@ -15,6 +16,63 @@ class _BottomNavigationPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return false;
+  }
+}
+
+class _BottomNavigationItem extends StatelessWidget {
+  final String label;
+  final String iconPath;
+  final bool isActive;
+
+  const _BottomNavigationItem(
+      {Key? key,
+      required this.label,
+      this.iconPath = '',
+      this.isActive = false})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (isActive) {
+      return TextButton(
+          onPressed: () {},
+          style: TextButton.styleFrom(
+              shape: const CircleBorder(), minimumSize: const Size(60, 60)),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                label,
+                style: const TextStyle(
+                    color: AppColors.descPurple,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(
+                height: 7,
+              ),
+              const SizedBox(
+                height: 3,
+                width: 15,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                      gradient: RadialGradient(
+                          colors: [AppColors.blue, AppColors.accentPurple],
+                          stops: [0, 0.6],
+                          radius: 4)),
+                ),
+              )
+            ],
+          ));
+    }
+
+    return IconButton(
+        onPressed: () {},
+        icon: Image(
+          height: 25,
+          width: 25,
+          image: AssetImage(iconPath),
+        ));
   }
 }
 
@@ -39,21 +97,30 @@ class MyBottomNavigation extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(20),
                   child: Row(
-                    children: const [Text('1'), Text('2')],
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: const [
+                      _BottomNavigationItem(
+                        label: 'Home',
+                        iconPath: 'icons/home.png',
+                        isActive: true,
+                      ),
+                      _BottomNavigationItem(
+                        label: 'Transaction',
+                        iconPath: 'icons/wallet.png',
+                        isActive: false,
+                      ),
+                      _BottomNavigationItem(
+                          label: 'Add', iconPath: 'icons/add.png'),
+                      _BottomNavigationItem(
+                          label: 'Manage', iconPath: 'icons/manage.png'),
+                      _BottomNavigationItem(
+                          label: 'Report', iconPath: 'icons/report.png')
+                    ],
                   ),
                 ),
               ),
             ),
           ),
         ));
-    // return BottomNavigationBar(elevation: 1, items: [
-    //   BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: 'Home'),
-    //   BottomNavigationBarItem(
-    //       icon: Icon(Icons.access_alarm), label: 'Transaction'),
-    //   BottomNavigationBarItem(
-    //       icon: Icon(Icons.access_alarm), label: 'Add Transaction'),
-    //   BottomNavigationBarItem(icon: Icon(Icons.access_alarm), label: 'Manage'),
-    //   BottomNavigationBarItem(icon: Icon(Icons.access_alarm), label: 'Profile')
-    // ]);
   }
 }
