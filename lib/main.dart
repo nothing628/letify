@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import './screen/home_screen.dart';
 import './screen/splash_screen.dart';
 import './screen/product_tour_first.dart';
@@ -8,7 +9,9 @@ import './screen/login_screen.dart';
 import './screen/register_screen.dart';
 import './helper/scroll_controller.dart';
 
-void main() {
+Future main() async {
+  await dotenv.load();
+
   runApp(const MyApp());
 }
 
